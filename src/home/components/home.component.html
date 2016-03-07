@@ -1,0 +1,16 @@
+<p>
+  Howdy! Here's a list of awesome computer scientists.
+  Do you know any others? Add to the list yourself.
+</p>
+
+<form (submit)="addName()">
+  <input [(ngModel)]="newName" placeholder="Awesome Computer Scientist">
+  <button type="submit">Add</button>
+  <button type="submit">Remove</button>
+  
+</form>
+
+
+<ul>
+  <li *ngFor="#name of nameListService.get()">{{name}}</li>
+</ul>
