@@ -1,15 +1,29 @@
 export class NameListService {
-  names = [
-    'Edsger Dijkstra',
-    'Donald Knuth',
-    'Alan Turing',
-    'Grace Hopper'
-  ];
+  // names = [
+  //   'Edsger Dijkstra',
+  //   'Donald Knuth',
+  //   'Alan Turing',
+  //   'Grace Hopper'
+  // ];
 
-  get(): string[] {
-    return this.names;
+  // class person{
+  //   this.fn,
+  //   this.ln
+  // }
+
+person = [{
+  ffirstName: 'Ben',
+  lastName: 'Halverson',
+  age: 34
+}];
+
+  get(): any[] {
+    return this.person;
   }
-  add(value: string): void {
-    this.names.push(value);
+  add(firstName: string, lastName: string, age: number): void {
+
+
+    this.person.push({firstName});
+    console.log('person: ', this.person);
   }
 }

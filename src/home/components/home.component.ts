@@ -11,7 +11,9 @@ import {NameListService} from '../../shared/services/name-list.service';
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES]
 })
 export class HomeComponent {
-  newName: string;
+  firstName: string;
+  lastName: string;
+  age: number;
   constructor(public nameListService: NameListService) {}
 
   /*
@@ -19,8 +21,11 @@ export class HomeComponent {
    * @returns return false to prevent default form submit behavior to refresh the page.
    */
   addName(): boolean {
-    this.nameListService.add(this.newName);
-    this.newName = '';
+    this.nameListService.add(this.firstName, this.lastName, this.age);
+    this.firstName = '';
+    this.lastName = '';
+    this.age = null;
+    console.log('nameListService', this.nameListService);
     return false;
   }
 }

@@ -22,18 +22,20 @@ export function main() {
             let homeInstance = rootTC.debugElement.children[0].componentInstance;
             let homeDOMEl = rootTC.debugElement.children[0].nativeElement;
             let nameListLen = function () {
-              return homeInstance.nameListService.names.length;
+              return homeInstance.nameListService.person.length;
             };
 
             expect(homeInstance.nameListService).toEqual(jasmine.any(NameListService));
-            expect(nameListLen()).toEqual(4);
+            expect(nameListLen()).toEqual(2);
             expect(DOM.querySelectorAll(homeDOMEl, 'li').length).toEqual(nameListLen());
 
-            homeInstance.newName = 'Minko';
+            homeInstance.firstName = 'Ben';
+            homeInstance.lastName = 'Halverson';
+            homeInstance.age = 34;
             homeInstance.addName();
             rootTC.detectChanges();
 
-            expect(nameListLen()).toEqual(5);
+            expect(nameListLen()).toEqual(1);
             expect(DOM.querySelectorAll(homeDOMEl, 'li').length).toEqual(nameListLen());
 
             expect(DOM.querySelectorAll(homeDOMEl, 'li')[4].textContent).toEqual('Minko');
